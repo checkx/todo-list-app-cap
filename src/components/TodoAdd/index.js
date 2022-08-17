@@ -1,52 +1,47 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const Index = props => {
-  const [todo, setTodo] = useState({
-    id: '',
-    name: '',
-    desc: ''
-  });
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    if (!todo.name || !todo.desc) {
-      alert('Please fill in all fields');
-      return;
-    } else {
-      props.addHandler(todo);
-    }
-    setTodo({
-      id: '',
-      name: '',
-      desc: ''
-    });
-  };
+const Index = (props) => {
+  const { todo, setTodo, handleSubmit } = props;
 
   return (
-    <form className='form-container' onSubmit={e => handleSubmit(e)}>
-      <div className='form-field'>
-        <label>Name</label>
+    <div className='container text-start'>
+    <form
+      className="form-container"
+      onSubmit={(e) => {
+        handleSubmit(e);
+      }}
+    >
+      
+      <div class="col-6">
+        <h3><label htmlFor="name" className='form-label'>Tittle</label></h3>
         <input
-          type='text'
-          name='name'
-          placeholder='What your plan?'
-          onChange={e => setTodo({ ...todo, name: e.target.value })}
+          type="text"
+          className='form-control'
+          name="name"
+          placeholder="Whats your plan?"
+          value={todo.name}
+          onChange={(e) => {
+            setTodo({ ...todo, name: e.target.value });
+          }}
         />
       </div>
-      <div className='form-field'>
-        <label>Description</label>
+      <div class="col-6">
+        <h3><label htmlFor="name" className='form-label'>Description</label></h3>
         <input
-          type='text'
-          name='description'
-          placeholder='How it will goin?'
-          onChange={e => setTodo({ ...todo, desc: e.target.value })}
+          type="text" className='form-control' name="decription" placeholder="How it will going?" value={todo.desc}
+          onChange={(e) => {
+            setTodo({ ...todo, desc: e.target.value });
+          }}
         />
-      </div>
-      <button type='submit' className='form-button'>
-        Add
+        </div>
+        <div className='mt-4'>
+      <button type="submit" className='btn btn-primary'>
+        Save
       </button>
-
+      </div>
+      
     </form>
+    </div>
   );
 };
 
