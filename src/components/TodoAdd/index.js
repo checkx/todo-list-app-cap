@@ -11,8 +11,8 @@ const Index = (props) => {
         handleSubmit(e);
       }}
     >
-      
-      <div class="col-6">
+
+      <div class="mt-4 col-6">
         <h3><label htmlFor="name" className='form-label'>Tittle</label></h3>
         <input
           type="text"

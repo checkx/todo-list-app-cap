@@ -7,12 +7,12 @@ const Index = (props) => {
     <div className="row row-cols-1 row-cols-md-3 g-4">
       <div className="col-sm-6">
         <div className="card h-100">
-          <div className="card-body">
+          <div className="card-body" >
             <h5 className="card-title">{name}</h5>
             <p className="card-text">{desc}</p>
             <button
             type='button'
-              className="m-2 btn btn-danger"
+              className="m-2 btn btn-success"
               onClick={() => {
                 props.updateHandler(id);
               }}
@@ -21,7 +21,7 @@ const Index = (props) => {
             </button>
             <button
               type='button'
-              className="btn btn-success "
+              className="btn btn-danger"
               onClick={() => {
                 props.deleteHandler(id);
               }}
